@@ -63,10 +63,7 @@ Specifies the mechanism for internal execution.
 #### `anchorKey` PropTypes.string
 Url search key for the anchor, default is '_to'.
 ### scrollIntoView options
-#### `scrollIntoViewOption` PropTypes.oneOfType([
-  PropTypes.bool,
-  PropTypes.object
-])
+#### `scrollIntoViewOption` PropTypes.oneOfType([PropTypes.bool,PropTypes.object])
 Options passed when [scrollIntoView](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) is used. 
 ### scrollTop options
 #### `container` PropTypes.string
