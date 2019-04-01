@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/kwzm/react-anchor-without-hash/compare/v2.0.0...v2.0.1) (2019-04-01)
+
+
+### Performance Improvements
+
+* **src/Anchor.js:** Optimize with isEnable ([9152349](https://github.com/kwzm/react-anchor-without-hash/commit/9152349))
+
+
+
 # [2.0.0](https://github.com/kwzm/react-anchor-without-hash/compare/v1.0.0...v2.0.0) (2019-04-01)
 
 
