@@ -2,7 +2,7 @@
   "name": "react-anchor-without-hash",
   "version": "1.0.0",
   "description": "A anchor react component simulates url hash.",
-  "main": "./dist/Anchor.js",
+  "main": "./lib/Anchor.js",
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.config.js",
     "build": "webpack --config config/webpack.prod.config.js",
@@ -60,5 +60,8 @@
   "peerDependencies": {
     "react": "^15.3.0 || ^16.0.0"
   },
-  "private": false
+  "private": false,
+  "files": [
+    "lib"
+  ]
 }

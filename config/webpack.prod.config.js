@@ -8,7 +8,7 @@ module.exports = merge(commonConfig, {
   entry: path.resolve(__dirname, '../src/Anchor.js'),
   output: {
     filename: 'Anchor.js',
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../lib'),
     libraryTarget: 'commonjs2'
   },
   externals: ['react'],
