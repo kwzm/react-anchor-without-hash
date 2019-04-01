@@ -1,5 +1,5 @@
 import React from 'react'
-import Anchor from '../dist/Anchor'
+import Anchor from '../src/Anchor'
 import './index.css'
 
 class App extends React.Component {
@@ -7,10 +7,10 @@ class App extends React.Component {
     return (
       <div>
         <div className="navbar">
-          <a href="/#demo?to=section1">section1</a>
-          <a href="/#demo?to=section2">section2</a>
-          <a href="/#demo?to=section3">section3</a>
-          <a href="/#demo?to=section4">section4</a>
+          <a href="/#demo?_to=section1">section1</a>
+          <a href="/#demo?_to=section2">section2</a>
+          <a href="/#demo?_to=section3">section3</a>
+          <a href="/#demo?_to=section4">section4</a>
         </div>
         <Anchor name="section1">
           <div className="section section1">

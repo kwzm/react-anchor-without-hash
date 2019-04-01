@@ -67,7 +67,7 @@ class Anchor extends React.Component {
 }
 
 Anchor.defaultProps = {
-  anchorKey: 'to',
+  anchorKey: '_to',
   scrollIntoViewOption: true
 }
 
