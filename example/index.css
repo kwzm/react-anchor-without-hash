@@ -1,0 +1,25 @@
+.navbar {
+  font-size: 30px;
+  margin-bottom: 100px;
+}
+.navbar a {
+  cursor: pointer;
+  margin-right: 20px;
+}
+.section {
+  border: 1px solid black;
+  height: 400px;
+  margin-bottom: 100px;
+}
+.section1 {
+  background: red;
+}
+.section2 {
+  background: green;
+}
+.section3 {
+  background: blue;
+}
+.section4 {
+  background: yellow;
+}
