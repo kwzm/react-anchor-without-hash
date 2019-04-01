@@ -1,3 +1,12 @@
+## [2.1.1](https://github.com/kwzm/react-anchor-without-hash/compare/v2.0.1...v2.1.1) (2019-04-01)
+
+
+### Features
+
+* **src/Anchor.js:** Add some props and support scrollTop ([170b176](https://github.com/kwzm/react-anchor-without-hash/commit/170b176))
+
+
+
 ## [2.0.1](https://github.com/kwzm/react-anchor-without-hash/compare/v2.0.0...v2.0.1) (2019-04-01)
 
 
