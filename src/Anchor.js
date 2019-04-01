@@ -14,35 +14,46 @@ const getSearch = () => {
   }
 }
 
+const getAnchor = (anchorKey) => {
+  const parsed = queryString.parse(getSearch())
+
+  return parsed[anchorKey]
+}
+
 class Anchor extends React.Component {
   constructor(props) {
     super(props)
 
+    this.isEnable = !!getAnchor(props.anchorKey)
     this.id = uniqid(prefix)
     this.handleHashChange = this.handleHashChange.bind(this)
     this.scroll = this.scroll.bind(this)
   }
 
   componentDidMount() {
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual'
+    if (this.isEnable) {
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual'
+      }
+      window.addEventListener("hashchange", this.handleHashChange)
+      this.scroll()
     }
-    window.addEventListener("hashchange", this.handleHashChange)
-    this.scroll()
   }
 
   componentWillUnmount() {
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'auto'
+    if (this.isEnable) {
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'auto'
+      }
+      window.removeEventListener("hashchange", this.handleHashChange)
     }
-    window.removeEventListener("hashchange", this.handleHashChange)
   }
 
   scroll() {
     const { name, anchorKey, scrollIntoViewOption } = this.props
-    const parsed = queryString.parse(getSearch())
+    const anchor = getAnchor(anchorKey)
 
-    if (parsed && name === parsed[anchorKey]) {
+    if (name === anchor) {
       const dom = document.getElementById(this.id)
 
       if (dom.scrollIntoView) {
