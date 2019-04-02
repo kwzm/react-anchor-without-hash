@@ -1,3 +1,12 @@
+## [2.1.3](https://github.com/kwzm/react-anchor-without-hash/compare/v2.1.1...v2.1.3) (2019-04-02)
+
+
+### Bug Fixes
+
+* **src/Anchor.js:** Fix sometimes scroll failure ([4555675](https://github.com/kwzm/react-anchor-without-hash/commit/4555675))
+
+
+
 ## [2.1.1](https://github.com/kwzm/react-anchor-without-hash/compare/v2.0.1...v2.1.1) (2019-04-01)
 
 
