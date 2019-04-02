@@ -37,10 +37,11 @@ class Anchor extends React.Component {
     if (this.isEnable) {
       const { type } = this.props
 
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual'
+      }
+
       if (type === SCROLL_INTO_VIEW) {
-        if ('scrollRestoration' in history) {
-          history.scrollRestoration = 'manual'
-        }
         window.addEventListener("hashchange", this.handleHashChange)
         this.scrollIntoView()
       } 
@@ -55,10 +56,11 @@ class Anchor extends React.Component {
     if (this.isEnable) {
       const { type } = this.props
 
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'auto'
+      }
+
       if (type === SCROLL_INTO_VIEW) {
-        if ('scrollRestoration' in history) {
-          history.scrollRestoration = 'auto'
-        }
         window.removeEventListener("hashchange", this.handleHashChange)
       }
     }
@@ -72,7 +74,9 @@ class Anchor extends React.Component {
       const dom = document.getElementById(this.id)
 
       if (dom.scrollIntoView) {
-        dom.scrollIntoView(scrollIntoViewOption)
+        setTimeout(() => {
+          dom.scrollIntoView(scrollIntoViewOption)
+        },0)
       }
     }
   }
@@ -93,7 +97,9 @@ class Anchor extends React.Component {
         throw "interval must be a number"
       }
 
-      cont.scrollTop = dom.offsetTop + Number(interval)
+      setTimeout(() => {
+        cont.scrollTop = dom.offsetTop + Number(interval)
+      },0)
     }
   }
 
