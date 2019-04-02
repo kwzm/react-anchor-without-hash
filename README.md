@@ -3,7 +3,7 @@ A anchor react component use url search string without hash.
 This component solves the problem that hash anchors cannot be used when using the hash router. 
 ## install
 ```sh
-npm i react-anchor-without-hash
+$ npm i react-anchor-without-hash
 ```
 ## usage
 ### scrollIntoView(default)
@@ -39,21 +39,24 @@ const anchorProps = {
   interval: 50
 }
 
-<Anchor name="section1" {...anchorProps}>
-  <div className="section section1">
-    <h2>This is section1</h2>
-    <div>There are some text...</div>
-  </div>
-</Anchor>
-<Anchor name="section2" {...anchorProps}>
-  <div className="section section2">
-    <h2>This is section2</h2>
-    <div>There are some text...</div>
-  </div>
-</Anchor>
+<div style={{position: 'relative'}}>
+  <Anchor name="section1" {...anchorProps}>
+    <div className="section section1">
+      <h2>This is section1</h2>
+      <div>There are some text...</div>
+    </div>
+  </Anchor>
+  <Anchor name="section2" {...anchorProps}>
+    <div className="section section2">
+      <h2>This is section2</h2>
+      <div>There are some text...</div>
+    </div>
+  </Anchor>
+</div>
 ```
 When url search includes '_to=section1', the section1 will scroll into view with 50px offset.
 You can go to the [example](https://github.com/kwzm/react-anchor-without-hash/blob/master/example/App.js) for details.
+> note: Because offsetTop is used internally to get the height of the scroll, you need to make sure that one parent sets the position attribute(relative, absolute or fixed), otherwise the entire document will be benchmarked.
 ## options
 ### common options
 #### `type` PropTypes.string
