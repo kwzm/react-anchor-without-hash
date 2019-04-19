@@ -4,8 +4,9 @@
   "description": "A anchor react component use url search string without hash.",
   "main": "./lib/Anchor.js",
   "scripts": {
-    "dev": "webpack-dev-server --config config/webpack.dev.config.js",
     "build": "webpack --config config/webpack.prod.config.js",
+    "example:dev": "webpack-dev-server --config config/webpack.example.dev.config.js",
+    "example:build": "webpack --config config/webpack.example.build.config.js",
     "commit": "npx git-cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },

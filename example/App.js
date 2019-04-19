@@ -35,6 +35,7 @@ class App extends React.Component {
 
   render() {
     const { type, interval } = this.state
+    const { pathname } = window.location
     const anchorProps = type === 'scrollIntoView' ? {
       type
     } : {
@@ -78,10 +79,10 @@ class App extends React.Component {
           </div>
         )}
         <div className="navbar">
-          <a href="/#demo?_to=section1">section1</a>
-          <a href="/#demo?_to=section2">section2</a>
-          <a href="/#demo?_to=section3">section3</a>
-          <a href="/#demo?_to=section4">section4</a>
+          <a href={`${pathname}#demo?_to=section1`}>section1</a>
+          <a href={`${pathname}#demo?_to=section2`}>section2</a>
+          <a href={`${pathname}#demo?_to=section3`}>section3</a>
+          <a href={`${pathname}#demo?_to=section4`}>section4</a>
         </div>
         <Anchor name="section1" {...anchorProps}>
           <div className="section section1">
