@@ -1,12 +1,15 @@
 # react-anchor-without-hash
 A anchor react component use url search string without hash.
 This component solves the problem that hash anchors cannot be used when using the hash router. 
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 ## install
 ```sh
 $ npm i react-anchor-without-hash
 ```
 ## usage
 ### scrollIntoView(default)
+The effect is the same as [scrollIntoView]((https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView)).
 ```js
 import Anchor from 'react-anchor-without-hash'
 
@@ -28,6 +31,7 @@ import Anchor from 'react-anchor-without-hash'
 When url search includes '_to=section1', the section1 will scroll into view.
 You can go to the [example](https://github.com/kwzm/react-anchor-without-hash/blob/master/example/App.js) for details.
 ### scrollTop
+The effect is the same as [scrollTop]((https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTop)).
 ```js
 import Anchor from 'react-anchor-without-hash'
 
