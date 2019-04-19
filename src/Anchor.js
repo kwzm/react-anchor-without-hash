@@ -26,43 +26,50 @@ class Anchor extends React.Component {
   constructor(props) {
     super(props)
 
-    this.isEnable = !!getAnchor(props.anchorKey)
     this.id = uniqid(prefix)
     this.handleHashChange = this.handleHashChange.bind(this)
+    this.scroll = this.scroll.bind(this)
     this.scrollIntoView = this.scrollIntoView.bind(this)
     this.scrollTop = this.scrollTop.bind(this)
   }
 
   componentDidMount() {
-    if (this.isEnable) {
-      const { type } = this.props
+    const { anchorKey } = this.props
 
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual'
-      }
-
-      if (type === SCROLL_INTO_VIEW) {
-        window.addEventListener("hashchange", this.handleHashChange)
-        this.scrollIntoView()
-      } 
-
-      if (type === SCROLL_TOP) {
-        this.scrollTop()
-      }
+    if (getAnchor(anchorKey)) {
+      this.scroll()
     }
+
+    // Chrome keeps track of where you've been
+    // https://developer.mozilla.org/en-US/docs/Web/API/History
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual'
+    }
+
+    window.addEventListener("hashchange", this.handleHashChange)
   }
 
   componentWillUnmount() {
-    if (this.isEnable) {
-      const { type } = this.props
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'auto'
+    }
 
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'auto'
-      }
+    window.removeEventListener("hashchange", this.handleHashChange)
+  }
 
-      if (type === SCROLL_INTO_VIEW) {
-        window.removeEventListener("hashchange", this.handleHashChange)
-      }
+  handleHashChange() {
+    this.scroll()
+  }
+
+  scroll() {
+    const { type } = this.props
+
+    if (type === SCROLL_INTO_VIEW) {
+      this.scrollIntoView()
+    }
+
+    if (type === SCROLL_TOP) {
+      this.scrollTop()
     }
   }
 
@@ -100,18 +107,6 @@ class Anchor extends React.Component {
       setTimeout(() => {
         cont.scrollTop = dom.offsetTop + Number(interval)
       },0)
-    }
-  }
-
-  handleHashChange() {
-    const { type } = this.props
-
-    if (type === SCROLL_INTO_VIEW) {
-      this.scrollIntoView()
-    }
-
-    if (type === SCROLL_TOP) {
-      this.scrollTop()
     }
   }
 
