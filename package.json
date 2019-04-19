@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config config/webpack.dev.config.js",
     "build": "webpack --config config/webpack.prod.config.js",
+    "commit": "npx git-cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "repository": {
