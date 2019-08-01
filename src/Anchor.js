@@ -1,32 +1,16 @@
 import React from 'react'
-import uniqid from 'uniqid'
-import queryString from 'query-string'
+import PropTypes from 'prop-types'
+import invariant from 'invariant'
+import { getSearchParams, isNumber } from './utils'
 
-const prefix = 'anchor-'
-const SCROLL_INTO_VIEW = 'scrollIntoView'
-const SCROLL_TOP = 'scrollTop'
-
-const getSearch = () => {
-  const { location } = window
-
-  const result = location.href.split('?')[1]
-
-  if(result) {
-    return `?${result}`
-  }
-}
-
-const getAnchor = (anchorKey) => {
-  const parsed = queryString.parse(getSearch())
-
-  return parsed[anchorKey]
-}
+export const SCROLL_INTO_VIEW = 'scrollIntoView'
+export const SCROLL_TOP = 'scrollTop'
 
 class Anchor extends React.Component {
   constructor(props) {
     super(props)
 
-    this.id = uniqid(prefix)
+    this.anchorRef = React.createRef()
     this.handleHashChange = this.handleHashChange.bind(this)
     this.scroll = this.scroll.bind(this)
     this.scrollIntoView = this.scrollIntoView.bind(this)
@@ -36,7 +20,7 @@ class Anchor extends React.Component {
   componentDidMount() {
     const { anchorKey } = this.props
 
-    if (getAnchor(anchorKey)) {
+    if (getSearchParams(anchorKey)) {
       this.scroll()
     }
 
@@ -75,38 +59,34 @@ class Anchor extends React.Component {
 
   scrollIntoView() {
     const { name, anchorKey, scrollIntoViewOption } = this.props
-    const anchor = getAnchor(anchorKey)
+    const anchor = getSearchParams(anchorKey)
 
     if (name === anchor) {
-      const dom = document.getElementById(this.id)
+      const dom = this.anchorRef.current
 
       if (dom.scrollIntoView) {
         setTimeout(() => {
           dom.scrollIntoView(scrollIntoViewOption)
-        },0)
+        }, 0)
       }
     }
   }
 
   scrollTop() {
     const { name, anchorKey, container, interval } = this.props
-    const anchor = getAnchor(anchorKey)
+    const anchor = getSearchParams(anchorKey)
 
     if (name === anchor) {
       const cont = document.querySelector(container)
-      const dom = document.getElementById(this.id)
+      const dom = this.anchorRef.current
 
-      if (!cont) {
-        throw "container can't match any element"
-      }
+      invariant(cont, "container can't match any element")
 
-      if (Number.isNaN(interval)) {
-        throw "interval must be a number"
-      }
+      invariant(isNumber(interval), 'interval must be a number')
 
       setTimeout(() => {
         cont.scrollTop = dom.offsetTop + Number(interval)
-      },0)
+      }, 0)
     }
   }
 
@@ -114,7 +94,7 @@ class Anchor extends React.Component {
     const { children } = this.props
 
     return (
-      <div id={this.id}>
+      <div ref={this.anchorRef}>
         {children}
       </div>
     )
@@ -127,6 +107,17 @@ Anchor.defaultProps = {
   scrollIntoViewOption: true,
   container: 'html',
   interval: 0
+}
+
+Anchor.protoTypes = {
+  anchorKey: PropTypes.string,
+  type: PropTypes.oneOf([SCROLL_INTO_VIEW, SCROLL_TOP]),
+  scrollIntoViewOption: PropTypes.oneOf([
+    PropTypes.bool,
+    PropTypes.object
+  ]),
+  container: PropTypes.string,
+  interval: PropTypes.number
 }
 
 export default Anchor
