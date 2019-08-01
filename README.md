@@ -1,19 +1,24 @@
+English | [简体中文](./README_zh-CN.md)
+
 # react-anchor-without-hash
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)  
 A anchor react component use url search string without hash.
 This component solves the problem that hash anchors cannot be used when using the hash router. 
-
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-## install
+## Online Demo
+[https://kwzm.github.io/react-anchor-without-hash/](https://kwzm.github.io/react-anchor-without-hash/)
+## Install
 ```sh
 $ npm i react-anchor-without-hash
 ```
-## usage
+## Usage
 ### scrollIntoView(default)
 The effect is the same as [scrollIntoView]((https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView)).
+When url search includes '_to=section1', the section1 will scroll into view area.
+You can go to the [example](https://github.com/kwzm/react-anchor-without-hash/blob/master/example/App.js) for details.
 ```js
 import Anchor from 'react-anchor-without-hash'
 
-......
+// ......
 
 <Anchor name="section1">
   <div className="section section1">
@@ -28,14 +33,18 @@ import Anchor from 'react-anchor-without-hash'
   </div>
 </Anchor>
 ```
-When url search includes '_to=section1', the section1 will scroll into view.
-You can go to the [example](https://github.com/kwzm/react-anchor-without-hash/blob/master/example/App.js) for details.
 ### scrollTop
 The effect is the same as [scrollTop]((https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTop)).
+When url search includes '_to=section1', the section1 will scroll into view area with 50px top margin.
+You can go to the [example](https://github.com/kwzm/react-anchor-without-hash/blob/master/example/App.js) for details.
+> note:  
+1.Because offsetTop is used internally to get the height of the scroll, you need to make sure have a [positioned containing element](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent).  
+2.Interval can allow negative values
+
 ```js
 import Anchor from 'react-anchor-without-hash'
 
-......
+// ......
 
 const anchorProps = {
   type: 'scrollTop',
@@ -58,26 +67,23 @@ const anchorProps = {
   </Anchor>
 </div>
 ```
-When url search includes '_to=section1', the section1 will scroll into view with 50px offset.
-You can go to the [example](https://github.com/kwzm/react-anchor-without-hash/blob/master/example/App.js) for details.
-> note: Because offsetTop is used internally to get the height of the scroll, you need to make sure that one parent sets the position attribute(relative, absolute or fixed), otherwise the entire document will be benchmarked.
-## options
+## Options
 ### common options
-#### `type` PropTypes.string
+#### `type: string`
 Specifies the mechanism for internal execution.
 - scrollIntoView: use [element.scrollIntoView](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) api
 - scrollTop: use [element.scrollTop](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTop) api
-#### `anchorKey` PropTypes.string
+#### `anchorKey: string`
 Url search key for the anchor, default is '_to'.
 ### scrollIntoView options
-#### `scrollIntoViewOption` PropTypes.oneOfType([PropTypes.bool,PropTypes.object])
+#### `scrollIntoViewOption: boolean | object`
 Options passed when [scrollIntoView](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) is used. 
 ### scrollTop options
-#### `container` PropTypes.string
+#### `container: string`
 Specifies which element performs scrollTop, default value is html.
-> note: This option is the parameter for the [document.querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
-#### `interval` PropTypes.number
-Specifies the departure height, default value is 0.
+> note: This option is the parameter for the [document.querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), so choose the type it supports.
+#### `interval: number`
+Specifies the distance from the top, which defaults to 0.
 The actual scrollTop equals:
 ```js
 document.querySelector(container).scrollTop = document.getElementById(anchor).offsetTop + interval
