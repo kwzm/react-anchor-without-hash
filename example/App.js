@@ -18,18 +18,18 @@ class App extends React.Component {
     var radios = document.getElementsByName('type')
 
     radios.forEach(item => {
-      if(item.checked) {
+      if (item.checked) {
         this.setState({
           type: item.value
         })
-        return 
+        return
       }
     })
   }
 
   handleTopChange(e) {
     this.setState({
-      interval: e.target.value
+      interval: Number(e.target.value)
     })
   }
 
@@ -39,31 +39,31 @@ class App extends React.Component {
     const anchorProps = type === 'scrollIntoView' ? {
       type
     } : {
-      type,
-      interval
-    }
+        type,
+        interval
+      }
 
     return (
       <div>
         <div className="types">
           <span>Which type do you want?</span>
-          <label>
-            <input 
-              name="type" 
-              type="radio" 
-              value="scrollIntoView" 
+          <label id="scrollIntoView">
+            <input
+              name="type"
+              type="radio"
+              value="scrollIntoView"
               checked={type === 'scrollIntoView'}
               onChange={this.handleChange}
             />
             scrollIntoView
           </label>
-          <label>
-            <input 
-              name="type" 
-              type="radio" 
+          <label id="scrollTop">
+            <input
+              name="type"
+              type="radio"
               value="scrollTop"
               checked={type === 'scrollTop'}
-              onChange={this.handleChange} 
+              onChange={this.handleChange}
             />
             scrollTop
           </label>
@@ -71,39 +71,40 @@ class App extends React.Component {
         {type === 'scrollTop' && (
           <div className="interval-top">
             <label>interval:</label>
-            <input 
+            <input
+              id="interval"
               value={interval}
-              type="number" 
+              type="number"
               onChange={this.handleTopChange}
             />
           </div>
         )}
         <div className="navbar">
-          <a href={`${pathname}#demo?_to=section1`}>section1</a>
-          <a href={`${pathname}#demo?_to=section2`}>section2</a>
-          <a href={`${pathname}#demo?_to=section3`}>section3</a>
-          <a href={`${pathname}#demo?_to=section4`}>section4</a>
+          <a id="a1" href={`${pathname}#demo?_to=section1`}>section1</a>
+          <a id="a2" href={`${pathname}#demo?_to=section2`}>section2</a>
+          <a id="a3" href={`${pathname}#demo?_to=section3`}>section3</a>
+          <a id="a4" href={`${pathname}#demo?_to=section4`}>section4</a>
         </div>
         <Anchor name="section1" {...anchorProps}>
-          <div className="section section1">
+          <div id="section1" className="section section1">
             <h2>This is section1</h2>
             <div>There are some text...</div>
           </div>
         </Anchor>
         <Anchor name="section2" {...anchorProps}>
-          <div className="section section2">
+          <div id="section2" className="section section2">
             <h2>This is section2</h2>
             <div>There are some text...</div>
           </div>
         </Anchor>
         <Anchor name="section3" {...anchorProps}>
-          <div className="section section3">
+          <div id="section3" className="section section3">
             <h2>This is section3</h2>
             <div>There are some text...</div>
           </div>
         </Anchor>
         <Anchor name="section4" {...anchorProps}>
-          <div className="section section4">
+          <div id="section4" className="section section4">
             <h2>This is section4</h2>
             <div>There are some text...</div>
           </div>
