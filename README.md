@@ -1,6 +1,9 @@
 English | [简体中文](./README_zh-CN.md)
 
 # react-anchor-without-hash
+![GitHub package.json version](https://img.shields.io/github/package-json/v/kwzm/react-anchor-without-hash)
+[![Build Status](https://travis-ci.org/kwzm/react-anchor-without-hash.svg?branch=master)](https://travis-ci.org/kwzm/react-anchor-without-hash)
+[![Coverage Status](https://coveralls.io/repos/github/kwzm/react-anchor-without-hash/badge.svg?branch=master)](https://coveralls.io/github/kwzm/react-anchor-without-hash?branch=master)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)  
 A anchor react component use url search string without hash.
 This component solves the problem that hash anchors cannot be used when using the hash router. 
