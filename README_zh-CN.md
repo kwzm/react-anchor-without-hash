@@ -4,11 +4,14 @@
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/kwzm/react-anchor-without-hash)
 [![Build Status](https://travis-ci.org/kwzm/react-anchor-without-hash.svg?branch=master)](https://travis-ci.org/kwzm/react-anchor-without-hash)
 [![Coverage Status](https://coveralls.io/repos/github/kwzm/react-anchor-without-hash/badge.svg?branch=master)](https://coveralls.io/github/kwzm/react-anchor-without-hash?branch=master)
+![npm bundle size](https://img.shields.io/bundlephobia/min/react-anchor-without-hash)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)  
 一个使用 url search 而不是 hash 的 react 锚点组件。
 这个组件解决了 hash 锚点 无法被用于 hash router 的问题。
 ## 在线示例
 [https://kwzm.github.io/react-anchor-without-hash/](https://kwzm.github.io/react-anchor-without-hash/)
+## codesandbox
+[https://codesandbox.io/embed/react-anchor-without-hash-2xq2h](https://codesandbox.io/embed/react-anchor-without-hash-2xq2h)
 ## 安装
 ```sh
 $ npm i react-anchor-without-hash
