@@ -8,6 +8,7 @@ English | [简体中文](./README_zh-CN.md)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)  
 A anchor react component use url search string without hash.
 This component solves the problem that hash anchors cannot be used when using the hash router. 
+This is a good solution for projects that need to use hash routing compatible with older browsers (IE9) but want to use anchor points
 ## Online Demo
 [https://kwzm.github.io/react-anchor-without-hash/](https://kwzm.github.io/react-anchor-without-hash/)
 ## codesandbox
