@@ -1,6 +1,6 @@
 {
   "name": "react-anchor-without-hash",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "A anchor react component use url search string without hash.",
   "main": "./lib/Anchor.js",
   "scripts": {
