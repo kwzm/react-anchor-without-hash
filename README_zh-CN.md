@@ -8,6 +8,7 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)  
 一个使用 url search 而不是 hash 的 react 锚点组件。
 这个组件解决了 hash 锚点 无法被用于 hash router 的问题。
+对于那些需要使用 hash 路由兼容老版本浏览器（IE9）而又想使用锚点功能的项目来说是一个不错的方案。
 ## 在线示例
 [https://kwzm.github.io/react-anchor-without-hash/](https://kwzm.github.io/react-anchor-without-hash/)
 ## codesandbox
