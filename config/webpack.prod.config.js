@@ -11,7 +11,7 @@ module.exports = merge(commonConfig, {
     path: path.resolve(__dirname, '../lib'),
     libraryTarget: 'commonjs2'
   },
-  externals: ['react'],
+  externals: ['react', 'prop-types'],
   plugins: [
     new BundleAnalyzerPlugin()
   ]
