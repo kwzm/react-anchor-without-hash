@@ -105,7 +105,7 @@ Anchor.defaultProps = {
   anchorKey: '_to',
   type: SCROLL_INTO_VIEW,
   scrollIntoViewOption: true,
-  container: 'html',
+  container: 'body', // Edge not support html
   interval: 0
 }
 
