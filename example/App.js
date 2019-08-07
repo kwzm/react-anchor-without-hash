@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   handleChange() {
-    var radios = document.getElementsByName('type')
+    const radios = [...document.getElementsByName('type')]
 
     radios.forEach(item => {
       if (item.checked) {
