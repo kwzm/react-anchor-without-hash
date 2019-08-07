@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import invariant from 'invariant'
-import { getSearchParams, isNumber } from './utils'
+import { getSearchParams, isNumber, setScrollTop } from './utils'
 
 export const SCROLL_INTO_VIEW = 'scrollIntoView'
 export const SCROLL_TOP = 'scrollTop'
@@ -77,16 +77,21 @@ class Anchor extends React.Component {
     const anchor = getSearchParams(anchorKey)
 
     if (name === anchor) {
-      const cont = document.querySelector(container)
-      const dom = this.anchorRef.current
-
-      invariant(cont, "container can't match any element")
-
       invariant(isNumber(interval), 'interval must be a number')
+      const dom = this.anchorRef.current
+      const scrollTop = dom.offsetTop + Number(interval)
 
-      setTimeout(() => {
-        cont.scrollTop = dom.offsetTop + Number(interval)
-      }, 0)
+      if (container) {
+        const cont = document.querySelector(container)
+
+        invariant(cont, "container can't match any element")
+
+        setTimeout(() => {
+          cont.scrollTop = scrollTop
+        }, 0)
+      } else {
+        setScrollTop(scrollTop)
+      }
     }
   }
 
@@ -105,7 +110,6 @@ Anchor.defaultProps = {
   anchorKey: '_to',
   type: SCROLL_INTO_VIEW,
   scrollIntoViewOption: true,
-  container: 'body', // Edge not support html
   interval: 0
 }
 
