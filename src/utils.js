@@ -29,3 +29,10 @@ export const isNumber = (val) => {
   }
   return false
 }
+
+// 为了兼容 IE Edge Chrome
+export const setScrollTop = (val) => {
+  document.documentElement.scrollTop = val
+  window.pageYOffset = val
+  document.body.scrollTop = val
+}

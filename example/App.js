@@ -45,6 +45,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <h1 className="title"><a href="https://github.com/kwzm/react-anchor-without-hash" target="_blank">react-anchor-without-hash</a></h1>
         <div className="types">
           <span>Which type do you want?</span>
           <label id="scrollIntoView">

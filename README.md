@@ -85,7 +85,10 @@ Url search key for the anchor, default is '_to'.
 Options passed when [scrollIntoView](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) is used. 
 ### scrollTop options
 #### `container: string`
-Specifies which element performs scrollTop, default value is html.
+Specifies which element performs scrollTop, if not, scrollTop is set by default using one of the following options:
+- document.body.scrollTop
+- document.documentElement.scrollTop
+- window.pageYOffset
 > note: This option is the parameter for the [document.querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), so choose the type it supports.
 #### `interval: number`
 Specifies the distance from the top, which defaults to 0.

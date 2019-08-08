@@ -87,7 +87,10 @@ Url 锚点的 search 键，默认是 '_to'。
 [scrollIntoView](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView) 所需要的 options。 
 ### scrollTop options
 #### `container` PropTypes.string
-指定哪个元素进行垂直滚动，默认值为 html。
+指定哪个元素进行垂直滚动，如果不传的话默认会使用以下几种方案的其中一种设置 scrollTop:
+- document.body.scrollTop
+- document.documentElement.scrollTop
+- window.pageYOffset
 > 注意: 这个选项内部会作为 [document.querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) 的参数，所以请选择其支持的类型。
 #### `interval: number`
 指定距离顶部的距离，默认是 0。
