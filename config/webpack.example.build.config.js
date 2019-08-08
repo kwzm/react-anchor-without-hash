@@ -9,6 +9,24 @@ module.exports = merge(commonConfig, {
   output: {
     path: path.resolve(__dirname, '../docs'),
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', {
+              'targets': {
+                'ie': '9'
+              }
+            }]
+          }
+        }
+      }
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../example/index.html')
