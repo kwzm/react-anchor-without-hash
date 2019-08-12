@@ -20,7 +20,9 @@ export const getSearchParams = (key) => {
 
 
 export const isNumber = (val) => {
-  if (toString.call(val) === '[object Number]') {
+  // IE9 toString.call() 报错：调用的对象无效
+  // 应为 window.toString !== Object.prototype.toString
+  if (Object.prototype.toString.call(val) === '[object Number]') {
     if (isNaN(val)) {
       return false
     }
