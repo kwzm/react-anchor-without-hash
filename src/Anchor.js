@@ -90,7 +90,9 @@ class Anchor extends React.Component {
           cont.scrollTop = scrollTop
         }, 0)
       } else {
-        setScrollTop(scrollTop)
+        setTimeout(() => {
+          setScrollTop(scrollTop)
+        }, 0)
       }
     }
   }
