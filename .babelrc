@@ -4,20 +4,17 @@
       "@babel/preset-env",
       {
         "targets": {
-          "node": "current",
+          "node": "current"
         },
-      },
+        "modules": false
+      }
     ],
     "@babel/preset-react"
   ],
-  "plugins": [
-    "@babel/plugin-transform-runtime"
-  ],
+  "plugins": ["@babel/plugin-transform-runtime"],
   "env": {
     "production": {
-      "plugins": [
-        "transform-react-remove-prop-types"
-      ]
+      "plugins": ["transform-react-remove-prop-types"]
     }
   }
 }
