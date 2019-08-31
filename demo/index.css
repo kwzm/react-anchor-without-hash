@@ -1,0 +1,43 @@
+.title {
+  text-align: center;
+  margin: 20px 0;
+}
+.types, .interval-top {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.types label {
+  margin-left: 20px;
+}
+.interval-top input {
+  margin-left: 20px;
+}
+.interval-top * {
+  vertical-align: middle;
+}
+.navbar {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 100px;
+}
+.navbar a {
+  cursor: pointer;
+  margin-right: 20px;
+}
+.section {
+  border: 1px solid black;
+  height: 400px;
+  margin-bottom: 100px;
+}
+.section1 {
+  background: red;
+}
+.section2 {
+  background: green;
+}
+.section3 {
+  background: blue;
+}
+.section4 {
+  background: yellow;
+}
